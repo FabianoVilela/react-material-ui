@@ -26,31 +26,36 @@ const styles = () => ({
     height: "calc(100vh - 100px)"
   },
   rightBorder: {
-    borderRight: "solid #d0D0D0 1px"
+    borderRight: "solid #d0D0D0 1px",
   },
   content: {
     marginTop: 0
   },
   background: {
     position: "absolute",
-    height: 200,
+    height: "100%",
     width: "100%",
     top: 0,
-    background: "#7159C1"
+    background: "#F35B68"
   },
   rightContainer: {
     background:
       "url(http://www.hdwallpapers20.com/wp-content/uploads/2015/04/Inspirational-Quotes-for-whatsapp-background-dp-1080p-free.jpg) no-repeat center center fixed",
     flex: 1,
     backgroundSize: "cover",
+    opacity: 0.3,
   },
   heightAdjust: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   paper: {
-    background: "#9de1fe",
-    padding: 20
+    background: "#00BEB2",
+    padding: 20,
+  },
+  userList: {
+    maxHeight: "100%",
+    overflow: 'auto'
   },
   information: {
     color: "#444"
@@ -149,18 +154,20 @@ const LeftContainer = ({ classes }) => (
       }
     />
     <Paper className={classes.paper} elevation={0}>
-      <Typography className={classes.information} variant="subheader">
+      <Typography className={classes.information} variant="subheading">
         Nulla in orci sit amet lorem pretium vulputate.
       </Typography>
     </Paper>
+    <Paper className={classes.userList} elevation={0}>
     <List>
       {list.map(item => (
-        <ListItem>
+        <ListItem key={item.id}>
           <Avatar src={item.image}/>
           <ListItemText primary={item.name} secondary={item.text} />
         </ListItem>
       ))}
     </List>
+    </Paper>
   </Grid>
 );
 
